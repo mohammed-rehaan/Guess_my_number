@@ -3,7 +3,6 @@
 let number = Math.floor(Math.random() * 20 + 1);
 let score = 20;
 let highscore = 0;
-
 console.log('Yahan Kya Dekhra Ghode 🐎🐴🏇🎠');
 
 document.querySelector('.check').addEventListener('click', function () {
@@ -36,9 +35,10 @@ document.querySelector('.check').addEventListener('click', function () {
             document.querySelector('.number').style.width = '30rem';
 
         }
-        else if (guess < number) {
+
+        else if (guess !== number) {
             if (score > 0) {
-                document.querySelector('.message').textContent = ' 📉 Too Low';
+                document.querySelector('.message').textContent = guess < number ?' 📉 Too Low' : ' 📉 Too High';
 
                 document.querySelector('.score').textContent = --score;
             }
@@ -48,21 +48,38 @@ document.querySelector('.check').addEventListener('click', function () {
                 document.querySelector('.message').textContent = '💙Lives Exhausted . You Lose 😢';
             }
 
+            
         }
-        else if (guess > number) {
-            if (score > 0) {
-                document.querySelector('.message').textContent = ' 📉 Too High';
+        // else if (guess < number) {
+        //     if (score > 0) {
+        //         document.querySelector('.message').textContent = ' 📉 Too Low';
 
-                document.querySelector('.score').textContent = --score;
-            }
+        //         document.querySelector('.score').textContent = --score;
+        //     }
 
-            else {
+        //     else {
 
-                document.querySelector('.message').textContent = '💙Lives Exhausted . You Lose 😢';
-            }
-        }
+        //         document.querySelector('.message').textContent = '💙Lives Exhausted . You Lose 😢';
+        //     }
+
+        // }
+        // else if (guess > number) {
+        //     if (score > 0) {
+        //         document.querySelector('.message').textContent = ' 📉 Too High';
+
+        //         document.querySelector('.score').textContent = --score;
+        //     }
+
+        //     else {
+
+        //         document.querySelector('.message').textContent = '💙Lives Exhausted . You Lose 😢';
+        //     }
+        // }
 
     }
+
+    
+    let clear = document.getElementById('gues').value = ' ' ;
 });
 
 document.querySelector('.again').addEventListener('click', function () {
